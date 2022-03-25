@@ -1,6 +1,8 @@
 import math
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException, TimeoutException, NoAlertPresentException
+from selenium.webdriver.support.wait import WebDriverWait
+from .locators import BasePageLocators, BasketPageLocators
 
 
 class BasePage:
@@ -19,6 +21,13 @@ class BasePage:
             return False
         return True
 
+    # def send_keys(self, what, where):
+    #     try:
+    #         self.browser.send_keys(what, where)
+    #     except NoSuchElementException:
+    #         return False
+    #     return True
+
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
@@ -32,3 +41,43 @@ class BasePage:
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+
+    def is_not_element_present(self, how, what, timeout=4):
+        try:
+            WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
+        except TimeoutException:
+            return True
+
+        return False
+
+    def is_disappeared(self, how, what, timeout=4):
+        try:
+            WebDriverWait(self.browser, timeout, 1, TimeoutException). \
+                until_not(EC.presence_of_element_located((how, what)))
+        except TimeoutException:
+            return False
+
+        return True
+
+    def go_to_login_page(self):
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK) #link = self.browser.find_element(*BasePageLocators.LOGIN_LINK_INVALID)
+        link.click()
+
+    def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+
+    def go_to_basket_page(self):
+        link = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
+        link.click()
+
+    # def should_not_be_product_in_basket(self):
+    #     assert self.is_not_element_present(*BasketPageLocators.BASKET_ITEMS), \
+    #         "BASKET_ITEMS is located"
+    #
+    # def should_be_text_the_basket_is_empty(self):
+    #     assert 'Ваша корзина пуста' in self.browser.find_element(*BasketPageLocators.TEXT_BASKET_IS_EMPTY).text, \
+    #         "TEXT_BASKET_IS_EMPTY is not located"
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                     " probably unauthorised user"
