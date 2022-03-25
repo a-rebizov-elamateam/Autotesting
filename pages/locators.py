@@ -12,6 +12,7 @@ class LoginPageLocators:
     EMAIL_FIELD = (By.XPATH, '//*[@id="id_registration-email"]')
     PASSWORD_FIELD = (By.XPATH, '//*[@id="id_registration-password1"]')
     CONFIRM_PASSWORD_FIELD = (By.XPATH, '//*[@id="id_registration-password2"]')
+    REGISTER_BUTTON = (By.XPATH,'//*[@id="register_form"]/button')
 
 
 class ProductPageLocators:
