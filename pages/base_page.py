@@ -21,6 +21,13 @@ class BasePage:
             return False
         return True
 
+    # def send_keys(self, what, where):
+    #     try:
+    #         self.browser.send_keys(what, where)
+    #     except NoSuchElementException:
+    #         return False
+    #     return True
+
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
@@ -71,4 +78,6 @@ class BasePage:
     #     assert 'Ваша корзина пуста' in self.browser.find_element(*BasketPageLocators.TEXT_BASKET_IS_EMPTY).text, \
     #         "TEXT_BASKET_IS_EMPTY is not located"
 
-
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                     " probably unauthorised user"
