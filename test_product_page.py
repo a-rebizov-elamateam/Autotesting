@@ -88,8 +88,8 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
 class TestUserAddToBasketFromProductPage:
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
-        mail = "12345@fakemail.org"  # str(time.time()) + "@fakemail.org"
-        password = "12345789"
+        mail = str(time.time()) + "@fakemail.org"
+        password = "AAAA12345789"
         link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
         page = ProductPage(browser, link)
         page.open()
