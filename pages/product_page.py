@@ -10,8 +10,7 @@ class ProductPage(BasePage):
     def put_in_the_basket(self):
         basket_button = self.browser.find_element(*ProductPageLocators.PRODUCT_PUT_BASKET)
         basket_button.click()
-        # alert = self.browser.switch_to.alert
-        # alert.getText()
+
 
     def success_product_add(self):
         assert self.is_element_present(*ProductPageLocators.PRODUCT_MESSAGE_SUCCESS), "PRODUCT_MESSAGE_SUCCESS is not presented"
