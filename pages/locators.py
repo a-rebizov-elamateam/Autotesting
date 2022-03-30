@@ -6,7 +6,6 @@ class MainPageLocators:
 
 
 class LoginPageLocators:
-    # LOGIN_URL = (By.CSS_SELECTOR, "#login_link")
     LOGIN_FORM = (By.XPATH, '//*[@id="login_form"]')
     REGISTER_FORM = (By.XPATH, '//*[@id="register_form"]')
     EMAIL_FIELD = (By.XPATH, '//*[@id="id_registration-email"]')

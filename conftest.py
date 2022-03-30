@@ -1,5 +1,7 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from time import sleep
 
 
 def pytest_addoption(parser):
@@ -16,7 +18,7 @@ def browser(request):
     if browser_name == "chrome":
         print("\nstart chrome browser for test..")
         browser = webdriver.Chrome(
-            'D:\\РАБОЧИЙ СТОЛ\\python\\autotesting\\chromedriver.exe')
+            'C:\\Users\\a.rebizov\\PycharmProjects\\pythonProject\\pythonProject1\\chromedriver\\chromedriver.exe')
     elif browser_name == "firefox":
         print("\nstart firefox browser for test..")
         browser = webdriver.Firefox(

@@ -13,8 +13,6 @@ class TestLoginFromMainPage:
         page.open()
         page.go_to_login_page()  # переход на страницу LoginPage
         time.sleep(5)
-        # login_page = page.go_to_login_page() # в переменную записываем возвращенный LoginPage из go_to_login_page(self)
-        # login_page.should_be_login_page() #  проверяем все элементы страницы LoginPage
         login_page = LoginPage(browser, browser.current_url)  # в переменную записываем LoginPage
         login_page.should_be_login_page()  # проверяем все элементы страницы LoginPage
 
