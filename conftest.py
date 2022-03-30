@@ -18,7 +18,7 @@ def browser(request):
     if browser_name == "chrome":
         print("\nstart chrome browser for test..")
         browser = webdriver.Chrome(
-            'C:\\Users\\a.rebizov\\PycharmProjects\\pythonProject\\pythonProject1\\chromedriver\\chromedriver.exe')
+            'D:\\РАБОЧИЙ СТОЛ\python\\autotesting\\chromedriver.exe')
     elif browser_name == "firefox":
         print("\nstart firefox browser for test..")
         browser = webdriver.Firefox(
