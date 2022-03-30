@@ -1,7 +1,6 @@
 import time
 import pytest
 from .pages.product_page import ProductPage
-from .pages.base_page import BasePage
 from .pages.basket_page import BasketPage
 from .pages.login_page import LoginPage
 
@@ -15,9 +14,6 @@ def test_guest_can_add_product_to_basket(browser):  # def test_guest_can_add_pro
     page.put_in_the_basket()
     page.solve_quiz_and_get_code()
     page.success_product_add()
-    # time.sleep(5)
-    # page.should_not_be_success_message()
-    # page.success_message_is_disappeared()
 
 
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
@@ -100,9 +96,6 @@ class TestUserAddToBasketFromProductPage:
         page.put_in_the_basket()
         page.solve_quiz_and_get_code()
         page.success_product_add()
-        # time.sleep(5)
-        # page.should_not_be_success_message()
-        # page.success_message_is_disappeared()
 
     def test_user_cant_see_success_message(self, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"

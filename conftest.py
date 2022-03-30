@@ -18,11 +18,11 @@ def browser(request):
     if browser_name == "chrome":
         print("\nstart chrome browser for test..")
         browser = webdriver.Chrome(
-            'C:\\Users\\User\\PycharmProjects\\pythonProject\\pythonProject1\\chromedriver\\chromedriver.exe')
+            'D:\\РАБОЧИЙ СТОЛ\python\\autotesting\\chromedriver.exe')
     elif browser_name == "firefox":
         print("\nstart firefox browser for test..")
         browser = webdriver.Firefox(
-            'C:\\Users\\User\\PycharmProjects\\pythonProject\\pythonProject1\\chromedriver\\geckodriver.exe')
+            'C:\\Users\\a.rebizov\\PycharmProjects\\pythonProject\\pythonProject1\\chromedriver\\geckodriver.exe')
     else:
         raise pytest.UsageError("--browser_name should be chrome or firefox")
     yield browser

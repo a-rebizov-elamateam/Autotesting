@@ -2,7 +2,7 @@ import math
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException, NoAlertPresentException
 from selenium.webdriver.support.wait import WebDriverWait
-from .locators import BasePageLocators, BasketPageLocators
+from .locators import BasePageLocators
 
 
 class BasePage:
